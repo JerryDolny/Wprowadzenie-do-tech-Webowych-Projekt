@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+</head>
+<body>
+	
+	<img src="./assets/Wsei.png" />
+	
+	<div class="menu-box">
+	
+    <ul class="menu" id="top-menu">
+	<li>
+		<img src="./assets/home.svg" style="width: 24px;height: 24px;"/>
+		<a href="./index.html">Home</a>
+	</li>
+	<li>
+		<img src="./assets/omnie.svg" style="width: 24px;height: 24px;"/>
+		<a href="./o-mnie.html">O mnie</a>
+	</li>
+	<li>
+		<img src="./assets/kontakt.svg" style="width: 24px;height: 24px;"/>
+		<a href="./kontakt.html">Kontakt</a>
+	</li>
+	<li>
+		<img src="./assets/todo.svg" style="width: 24px;height: 24px;"/>
+		<a href="./todo.html">To do</a>
+	</li>
+	</ul>
+	</div>
+	<p>
+		Lista 2dododo
+	</p>
+	
+		<div id="myDIV" class="header">
+	<h2>ZAPLANOWANE</h2>
+	<input type="text" id="myInput" placeholder="Wpisz tekst...">
+	<span onclick="newElement()" class="addBtn">Add</span>
+	</div>
+
+	<ul id="myUL">
+	<li>Projekt WEBOWE</li>
+	<li class="checked">Nauka C#</li>
+	<li>Pouczyć się Unity</li>
+	<li>Ogarnąć Angielski</li>
+	<li>Nauczyć się do MTA</li>
+	<li>Opłacić działalność</li>
+	</ul> 
+	
+	<script type="text/javascript">
+	
+	// Create a "close" button and append it to each list item
+var myNodelist = document.getElementById("myUL").getElementsByTagName("li");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.getElementById("myUL");
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+} 
+	</script>
+	
+	<img src="./assets/Wsei2.png" />
+	<ul>
+	
+		Rok 2019/2020  Jeremiasz Dolny
+	</ul>
+
+	
+	
+	<!--<a href="#" class="button">Animowany button</a> -->
+	
+	<!--<video controls poster="./assets/sample.jpg">
+		<source src="./assets/video.mp4" type="video/mp4"/>
+	</video>-->
+	
+    <script src="./scripts/app.js" ></script>
+</body>
+</html>
